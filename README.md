@@ -29,9 +29,11 @@ The communications among them take place by means of an EventDispatcher.
 
 #### 1.2.2 UIModel
 
+WIP
 
 #### 1.2.3 ViewModels with Livedata
 
+WIP
 
 #### 1.2.4 UseCase
 A **UseCase** is a wrapper for a small business logic operation. A **UseCase** can use one or more **Repository** to get or write the requested data, then it returns the response event.
