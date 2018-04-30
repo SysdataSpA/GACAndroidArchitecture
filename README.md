@@ -4,8 +4,10 @@ A powerful android rx-active Architecture merged with Google Architecture Compon
 ## 1. A Brief Introduciton
 The app is a sample project that shows how to implement the GACAndroidArchitecture into your Android app.
 
-### 1.1 What is RxAndroidArchitecture?
+### 1.1 What is GACAndroidArchitecture?
 It is a layer-based architecture that allows a real disentangle of the UI components from the business logic. 
+
+![alt text](https://cdn-images-1.medium.com/max/800/1*I9WPcnpGNuI4CjxxrkP0-g.png "Simple Architecture Diagram")
 
 The main components are:
 
@@ -15,7 +17,7 @@ The main components are:
 * UseCase
 * Repository
 
-### 1.2 RxAndroidArchitecture main components
+### 1.2 GACAndroidArchitecture main components
 
 #### 1.2.1 UI
 
@@ -37,7 +39,7 @@ A **UseCase** is a wrapper for a small business logic operation. A **UseCase** c
 #### 1.2.5 Repository
 A **Repository** handles the process of saving or retrieving data from a datasource, it is managed by one or more **UseCase**.
 
-## 2. RxAndroidArchitecture Classes Overview
+## 2. GACAndroidArchitecture Classes Overview
 
 WIP
 
