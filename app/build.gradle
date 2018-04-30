@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion sdkConfiguration.compile_sdk_version
+    buildToolsVersion sdkConfiguration.build_tools_version
+    defaultConfig {
+        applicationId "com.example.sysdata.gacandroidarchitecture"
+        minSdkVersion sdkConfiguration.min_sdk_version
+        targetSdkVersion sdkConfiguration.target_sdk_version
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':androidarchitecture')
+    //Support Libraries dependencies
+    implementation supportDependencies.values()
+    //Android Architecture component dependencies
+    implementation androidArchitectureDependencies.values()
+    //Android Architecture component annotations
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    annotationProcessor androidArchitectureAnnotation.values()
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
