@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion sdkConfiguration.compile_sdk_version
+    buildToolsVersion sdkConfiguration.build_tools_version
+
+    defaultConfig {
+        minSdkVersion sdkConfiguration.min_sdk_version
+        targetSdkVersion sdkConfiguration.target_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        defaultPublishConfig 'release'
+        publishNonDefault true
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+
+    //Support Libraries dependencies
+    api supportDependencies.values()
+    //Android Architecture component dependencies
+    api androidArchitectureDependencies.values()
+    //Android Architecture component annotations
+    annotationProcessor androidArchitectureAnnotation.values()
+    //Reactive Dependencies
+    api reactiveDependencies.values()
+    //Retrofit Dependencies
+    api retrofitDependencies.values()
+}
+
+/* Enable only if you need to debug changes on annotation processor module */
+/*task processorTask(type: Copy) {
+    from('../androidarchitectureprocessor/build/libs/')
+    into('libs/')
+}
+processorTask.dependsOn(':androidarchitectureprocessor:build')
+preBuild.dependsOn(processorTask)
+*/
